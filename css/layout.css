@@ -1,0 +1,331 @@
+/* aqui debe de ir todo el layout de la página (navbar, footer, grid de página) */
+
+/* ############ */
+/* ── NAVBAR ── */
+/* ############ */
+
+.navbar {
+  background: var(--color-white);
+  height: var(--nav-height);
+  border-bottom: 2px solid var(--color-primary-light);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 104, 55, 0.08);
+}
+
+.nav-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 24px;
+}
+
+/* Logo */
+.nav-logo img{
+    height: 42px;
+    display: block;
+    border-radius: 8px;
+}
+
+/* Boton categorias */
+.nav-menu-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.nav-menu-btn:hover {
+    background: var(--color-primary-dark);
+}
+
+.nav-menu-btn svg {
+    width: 16px;
+    height: 16px;
+    stroke: white;
+    fill: none;
+    flex-shrink: 0;
+}
+
+/* buscador */
+.nav-search {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background: var(--color-primary-light);
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: border-color 0.2s;
+}
+
+.nav-search:focus-within {
+    border-color: var(--color-accent);
+}
+
+.nav-search input {
+    flex: 1;
+    padding: 10px 14px;
+    border: none;
+    background: transparent;
+    font-family: var(--font-main);
+    font-size: 13px;
+    color: var(--color-text);
+    outline: none;
+}
+
+.nav-search input::placeholder {
+    color: #999;
+}
+
+.nav-search button {
+    padding: 0 14px;
+    height: 40px;
+    background: var(--color-accent);
+    border: none;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    flex-shrink: 0;
+}
+
+.nav-search button:hover {
+    background: var(--color-primary);
+}
+
+.nav-search button svg {
+    width: 16px;
+    height: 16px;
+    stroke: white;
+    fill: none;
+}
+
+/* Ubicacion */
+.nav-location {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: opacity 0.2s;
+}
+
+.nav-location:hover {
+    opacity: 0.8;
+}
+
+.nav-location svg{
+    width: 18px;
+    height: 18px;
+    stroke: var(--color-accent);
+    fill: none;
+    flex-shrink: 0;
+}
+
+.nav-location small {
+    display: block;
+    font-size: 10px;
+    color: var(--color-text-muted);
+}
+
+.nav-location strong {
+    display: block;
+    font-size: 13px;
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+/* login */
+.nav-login{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: var(--radius-sm);
+    flex-shrink: 0;
+    transition: background 0.2s;
+}
+
+.nav-login:hover {
+    background: var(--color-primary-light);
+}
+
+.nav-login svg {
+    width: 22px;
+    height: 22px;
+    stroke: var(--color-primary);
+    fill: none;
+    flex-shrink: 0;
+}
+
+.login-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-text small {
+    font-size: 10px;
+    color: var(--color-text-muted);
+}
+
+.login-text strong {
+    font-size: 13px;
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.nav-cart{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.nav-cart:hover {
+    border-color: var(--color-accent);
+    background: var(--color-primary-light);
+}
+
+.nav-cart svg {
+    width: 22px;
+    height: 22px;
+    stroke: var(--color-primary);
+    fill: none;
+}
+
+.nav-cart-badge {
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    background: #e53e3e;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+}
+
+/* ############ */
+/* ── FIN NAVBAR ── */
+/* ############ */
+
+/* ############ */
+/* ── FOOTER ── */
+/* ############ */
+.footer {
+  background: var(--color-primary-dark);
+  color: #c8e6d4;
+  padding: 48px 24px 0;
+}
+
+.footer__top {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 32px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer__col h4 {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.footer__col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer__col ul li a {
+  text-decoration: none;
+  font-size: 13px;
+  color: #9ec9cf;
+  transition: color 0.2s;
+}
+
+.footer__col ul li a:hover {
+  color: #ffffff;
+}
+
+.footer__bottom {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0 32px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer__copy {
+  font-size: 12px;
+  color: #6aad88;
+}
+
+/* Redes sociales */
+.footer__social {
+  display: flex;
+  gap: 10px;
+}
+
+.footer__social-link {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #9ecfb4;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.footer__social-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+}
+
+.footer__social-link svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
