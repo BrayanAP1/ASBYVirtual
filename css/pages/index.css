@@ -1,0 +1,36 @@
+.carruselOfertasYProductos{
+    position: relative;
+    width: 500px;
+    height: 300px;
+}
+
+.imagenesOfertasYProductos img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.imagenesOfertasYProductos img.active{
+    opacity: 1;
+}
+
+button{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.anterior{
+    left: 10px;
+}
+
+.siguiente{
+    right: 10px;
+}
