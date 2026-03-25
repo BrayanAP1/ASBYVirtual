@@ -109,6 +109,143 @@
         </div>
     </section>
 
+ 
+<section id="seccion-productos">
+
+  <!-- ── Encabezado ── -->
+  <div class="productos-header">
+    <h2>Nuestros Productos</h2>
+    <span id="productos-contador" class="productos-contador">12 productos</span>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       BARRA DE FILTROS
+       ══════════════════════════════════════ -->
+  <div class="productos-filtros">
+
+    <!-- Fila 1: Filtro por categoría -->
+    <div class="filtros-fila-categorias">
+      <span class="filtros-titulo">Categoría:</span>
+
+      <button class="filtro-cat-btn activo" data-valor="todos"
+        onclick="aplicarFiltroCategoria('todos')">
+        Todos
+      </button>
+
+      <button class="filtro-cat-btn" data-valor="medicamentos"
+        onclick="aplicarFiltroCategoria('medicamentos')">
+         Medicamentos
+      </button>
+
+      <button class="filtro-cat-btn" data-valor="vitaminas"
+        onclick="aplicarFiltroCategoria('vitaminas')">
+         Vitaminas
+      </button>
+
+      <button class="filtro-cat-btn" data-valor="cuidado-personal"
+        onclick="aplicarFiltroCategoria('cuidado-personal')">
+         Cuidado Personal
+      </button>
+    </div>
+
+    <hr class="filtros-divisor">
+
+    <!-- Fila 2: Precio + Marca + Stock + Orden -->
+    <div class="filtros-fila-extras">
+
+      <!-- Rango de precio -->
+      <div class="filtro-precio-bloque">
+        <div class="filtro-precio-labels">
+          <span>Precio:</span>
+          <div style="display:flex;gap:0.5rem;">
+            <span id="label-precio-min">$3.200</span>
+            <span>—</span>
+            <span id="label-precio-max">$52.000</span>
+          </div>
+        </div>
+        <div class="filtro-precio-sliders">
+          <div class="filtro-precio-track"></div>
+          <input
+            type="range"
+            id="precio-min"
+            min="3200"
+            max="52000"
+            value="3200"
+            step="500"
+            oninput="aplicarFiltroPrecio()"
+            style="z-index:2;"
+          >
+          <input
+            type="range"
+            id="precio-max"
+            min="3200"
+            max="52000"
+            value="52000"
+            step="500"
+            oninput="aplicarFiltroPrecio()"
+            style="z-index:3;"
+          >
+        </div>
+      </div>
+
+      <!-- Selects: Marca + Orden -->
+      <div class="filtros-selects">
+
+        <div class="filtro-select-grupo">
+          <label for="filtro-marca">Marca</label>
+          <select id="filtro-marca" onchange="aplicarFiltroMarca(this.value)">
+            <option value="todas">Todas las marcas</option>
+            <option value="Genfar">Genfar</option>
+            <option value="MK">MK</option>
+            <option value="La Santé">La Santé</option>
+            <option value="Nivea">Nivea</option>
+            <option value="Centrum">Centrum</option>
+            <option value="Isagel">Isagel</option>
+          </select>
+        </div>
+
+        <div class="filtro-select-grupo">
+          <label for="filtro-orden">Ordenar por</label>
+          <select id="filtro-orden" onchange="aplicarOrden(this.value)">
+            <option value="destacados">Destacados</option>
+            <option value="nuevos">Más nuevos</option>
+            <option value="precio-asc">Precio: menor a mayor</option>
+            <option value="precio-desc">Precio: mayor a menor</option>
+            <option value="nombre-az">Nombre A–Z</option>
+          </select>
+        </div>
+
+      </div>
+
+      <!-- Checkbox solo en stock -->
+      <div class="filtro-stock-wrap">
+        <label class="filtro-stock-label">
+          <input
+            type="checkbox"
+            id="filtro-stock"
+            onchange="aplicarFiltroStock(this.checked)"
+          >
+          Solo disponibles
+        </label>
+      </div>
+
+      <!-- Botón limpiar -->
+      <button class="btn-limpiar-filtros" onclick="limpiarFiltros()">
+        ✕ Limpiar filtros
+      </button>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       GRID DE PRODUCTOS (renderizado por JS)
+       ══════════════════════════════════════ -->
+  <div id="productos-grid" class="productos-grid">
+    <!-- Las tarjetas se generan automáticamente con JavaScript -->
+  </div>
+
+</section>
+
     <!-- ################## -->
      <!-- Footer -->
     <!-- ################## -->

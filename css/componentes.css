@@ -1,1 +1,542 @@
 /* aqui deben de ir los estilos de los componentes reutilizables (botones, tarjetas, formularios, badges reutilizables) */
+
+/* CSS de la parte de seccion de productos */
+
+
+:root {
+  --asby-verde:        #2e7d32;
+  --asby-verde-oscuro: #1b5e20;
+  --asby-verde-claro:  #e8f5e9;
+  --asby-verde-hover:  #c8e6c9;
+  --asby-rojo:         #e53935;
+  --asby-azul:         #1565c0;
+  --asby-naranja:      #f57c00;
+  --asby-gris-bg:      #f8f9fa;
+  --asby-gris-borde:   #dee2e6;
+  --asby-gris-texto:   #6c757d;
+  --asby-sombra:       0 2px 12px rgba(0, 0, 0, 0.08);
+  --asby-sombra-hover: 0 8px 28px rgba(0, 0, 0, 0.13);
+  --asby-radio:        12px;
+}
+
+/* ============================================
+   SECCIÓN PRINCIPAL
+   ============================================= */
+#seccion-productos {
+  max-width: 1280px;
+  margin: 2.5rem auto;
+  padding: 0 1.25rem 3rem;
+}
+
+/* ---------- Encabezado ---------- */
+.productos-header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.productos-header h2 {
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #212529;
+  margin: 0;
+}
+
+.productos-contador {
+  background: var(--asby-verde-claro);
+  color: var(--asby-verde-oscuro);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.2rem 0.75rem;
+  border-radius: 20px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+/*  BARRA DE FILTROS */
+.productos-filtros {
+  background: var(--asby-gris-bg);
+  border: 1px solid var(--asby-gris-borde);
+  border-radius: var(--asby-radio);
+  padding: 1.1rem 1.25rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/*  Fila 1: Categorías  */
+.filtros-fila-categorias {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+}
+
+.filtros-titulo {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--asby-gris-texto);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  margin-right: 0.25rem;
+}
+
+.filtro-cat-btn {
+  padding: 0.38rem 1rem;
+  border: 1.5px solid var(--asby-gris-borde);
+  background: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #495057;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+
+.filtro-cat-btn:hover {
+  border-color: var(--asby-verde);
+  color: var(--asby-verde);
+  background: var(--asby-verde-claro);
+}
+
+.filtro-cat-btn.activo {
+  background: var(--asby-verde);
+  border-color: var(--asby-verde);
+  color: #fff;
+}
+
+/*  Divisor entre filas -- */
+.filtros-divisor {
+  border: none;
+  border-top: 1px solid var(--asby-gris-borde);
+  margin: 0;
+}
+
+/*  Fila 2: Precio + extras  */
+.filtros-fila-extras {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  align-items: flex-end;
+}
+
+/* Bloque rango de precio */
+.filtro-precio-bloque {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 220px;
+  flex: 1;
+}
+
+.filtro-precio-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: var(--asby-gris-texto);
+}
+
+.filtro-precio-labels span {
+  font-weight: 600;
+  color: var(--asby-verde);
+}
+
+.filtro-precio-sliders {
+  position: relative;
+  height: 24px;
+}
+
+.filtro-precio-sliders input[type="range"] {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  top: 10px;
+  background: transparent;
+  pointer-events: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.filtro-precio-sliders input[type="range"]::-webkit-slider-thumb {
+  pointer-events: all;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--asby-verde);
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.filtro-precio-sliders input[type="range"]::-webkit-slider-thumb:hover {
+  background: var(--asby-verde-oscuro);
+}
+
+.filtro-precio-track {
+  position: absolute;
+  top: 12px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--asby-gris-borde);
+  border-radius: 2px;
+  z-index: 0;
+}
+
+/* Selects */
+.filtros-selects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: flex-end;
+}
+
+.filtro-select-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.filtro-select-grupo label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--asby-gris-texto);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.filtros-selects select {
+  padding: 0.42rem 0.85rem;
+  border: 1.5px solid var(--asby-gris-borde);
+  border-radius: 8px;
+  font-size: 0.82rem;
+  background: #fff;
+  color: #495057;
+  cursor: pointer;
+  transition: border-color 0.15s;
+  min-width: 160px;
+}
+
+.filtros-selects select:focus {
+  outline: none;
+  border-color: var(--asby-verde);
+}
+
+/* Checkbox stock */
+.filtro-stock-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  align-self: flex-end;
+}
+
+.filtro-stock-label {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+  color: #495057;
+  cursor: pointer;
+  user-select: none;
+  padding: 0.42rem 0;
+}
+
+.filtro-stock-label input[type="checkbox"] {
+  accent-color: var(--asby-verde);
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Botón limpiar */
+.btn-limpiar-filtros {
+  padding: 0.42rem 1rem;
+  background: transparent;
+  border: 1.5px solid var(--asby-gris-borde);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  color: var(--asby-gris-texto);
+  cursor: pointer;
+  transition: all 0.15s;
+  align-self: flex-end;
+  white-space: nowrap;
+}
+
+.btn-limpiar-filtros:hover {
+  border-color: var(--asby-rojo);
+  color: var(--asby-rojo);
+  background: #fff5f5;
+}
+
+/* GRID DE PRODUCTOS */
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 1.4rem;
+}
+
+/* TARJETA DE PRODUCTO */
+.producto-card {
+  position: relative;
+  background: #fff;
+  border: 1px solid var(--asby-gris-borde);
+  border-radius: var(--asby-radio);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  box-shadow: var(--asby-sombra);
+}
+
+.producto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--asby-sombra-hover);
+}
+
+.producto-card.agotado {
+  opacity: 0.62;
+}
+
+/*  Badges  */
+.producto-badges {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  z-index: 2;
+}
+
+.producto-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.18rem 0.55rem;
+  border-radius: 5px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.producto-badge--descuento {
+  background: var(--asby-rojo);
+  color: #fff;
+}
+
+.producto-badge--nuevo {
+  background: var(--asby-azul);
+  color: #fff;
+}
+
+.producto-badge--agotado {
+  background: #6c757d;
+  color: #fff;
+}
+
+/*  Imagen  */
+.producto-imagen {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--asby-gris-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-bottom: 1px solid var(--asby-gris-borde);
+}
+
+.producto-imagen img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.producto-card:hover .producto-imagen img {
+  transform: scale(1.06);
+}
+
+/*  Info */
+.producto-info {
+  padding: 0.95rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex: 1;
+}
+
+.producto-marca {
+  font-size: 0.68rem;
+  color: var(--asby-gris-texto);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+}
+
+.producto-nombre {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #212529;
+  margin: 0;
+  line-height: 1.35;
+  /* Máximo 2 líneas */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.producto-nombre mark {
+  background: #fff9c4;
+  color: inherit;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+.producto-descripcion {
+  font-size: 0.76rem;
+  color: var(--asby-gris-texto);
+  margin: 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/*  Precios  */
+.producto-precios {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-top: 0.3rem;
+}
+
+.producto-precio-antes {
+  font-size: 0.76rem;
+  color: #adb5bd;
+  text-decoration: line-through;
+}
+
+.producto-precio {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--asby-verde);
+}
+
+/*  Botón agregar  */
+.producto-btn-agregar {
+  margin-top: auto;
+  padding: 0.55rem 0;
+  background: var(--asby-verde);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 600;
+  width: 100%;
+  transition: background 0.18s ease;
+}
+
+.producto-btn-agregar:hover:not(:disabled) {
+  background: var(--asby-verde-oscuro);
+}
+
+.producto-btn-agregar:disabled {
+  background: #ced4da;
+  cursor: not-allowed;
+}
+
+/*ESTADO VACÍO */
+.productos-vacio {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--asby-gris-texto);
+}
+
+.productos-vacio-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.productos-vacio p {
+  font-size: 0.95rem;
+  margin: 0 0 1.25rem;
+}
+
+.productos-vacio button {
+  padding: 0.55rem 1.5rem;
+  background: var(--asby-verde);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: background 0.15s;
+}
+
+.productos-vacio button:hover {
+  background: var(--asby-verde-oscuro);
+}
+
+/* BADGE CARRITO (navbar) */
+.badge-pulso {
+  animation: badge-pulso 0.4s ease;
+}
+
+@keyframes badge-pulso {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.55); }
+  100% { transform: scale(1); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .filtros-fila-extras {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filtros-selects {
+    flex-wrap: wrap;
+  }
+
+  .filtros-selects select {
+    min-width: 0;
+    flex: 1 1 140px;
+  }
+}
+
+@media (max-width: 600px) {
+  #seccion-productos {
+    padding: 0 0.85rem 2rem;
+  }
+
+  .productos-grid {
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+    gap: 1rem;
+  }
+
+  .filtros-fila-categorias {
+    gap: 0.35rem;
+  }
+
+  .filtro-cat-btn {
+    font-size: 0.76rem;
+    padding: 0.3rem 0.75rem;
+  }
+
+  .productos-header h2 {
+    font-size: 1.25rem;
+  }
+}
