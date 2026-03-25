@@ -6,24 +6,25 @@
    ============================================ */
 :root {
   /* Colores de marca */
-  --color-primary:       #0066cc;
---color-primary-dark:  #004a99;
---color-primary-light: #e6f0fa;
---color-accent:        #0198e4;
+  --color-primary: #0066cc;
+  --color-primary-dark: #004a99;
+  --color-primary-light: #e6f0fa;
+  --color-accent: #0198e4;
+  --color-white: #ffffff;
 
   /* Textos */
-  --color-text:          #1a1a1a;
-  --color-text-muted:    #555555;
+  --color-text: #1a1a1a;
+  --color-text-muted: #555555;
 
   /* Bordes */
-  --color-border:        #d4e6da;
+  --color-border: #d4e6da;
 
   /* Espaciados (úsalos siempre, no pongas px a mano) */
-  --space-xs:  4px;
-  --space-sm:  8px;
-  --space-md:  16px;
-  --space-lg:  24px;
-  --space-xl:  40px;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
 
   /* Radios */
   --radius-sm: 6px;
@@ -38,7 +39,9 @@
 }
 
 /* Reset básico */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;

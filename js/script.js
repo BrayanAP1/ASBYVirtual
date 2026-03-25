@@ -1,23 +1,23 @@
-let index = 0;
+document.querySelectorAll('.carruselOfertasYProductos, .informacionRapidaEImportante').forEach(carrusel => {
+    const imagenes = carrusel.querySelectorAll('img');
+    let i = 0;
 
-const imagenes = document.querySelectorAll(".imagenesOfertasYProductos img")
+    carrusel.querySelector('.siguiente').addEventListener('click', () => {
+        imagenes[i].classList.remove('active');
+        i = (i + 1) % imagenes.length;
+        imagenes[i].classList.add('active');
+    });
 
-function mostrarImagen(i){
-    imagenes.forEach(img => img.classList.remove("active"));
-    imagenes[i].classList.add("active");
-}
+    carrusel.querySelector('.anterior').addEventListener('click', () => {
+        imagenes[i].classList.remove('active');
+        i = (i - 1 + imagenes.length) % imagenes.length;
+        imagenes[i].classList.add('active');
+    });
 
-document.querySelector(".siguiente").addEventListener("click",()=>{
-    index=(index + 1) % imagenes.length;
-    mostrarImagen(index);
+    // intervalo de tiempo para cambiar imagenes en automatico
+    setInterval(() => {
+        imagenes[i].classList.remove('active');
+        i = (i + 1) % imagenes.length;
+        imagenes[i].classList.add('active');
+    }, 3000);
 });
-
-document.querySelector(".anterior").addEventListener("click", ()=>{
-    index = (index - 1 + imagenes.length) % imagenes.length;
-    mostrarImagen(index);
-});
-
-setInterval(()=>{
-    index = (index + 1)% imagenes.length;
-    mostrarImagen(index);
-},3500) 
