@@ -12,7 +12,7 @@
 
 <body>
     <!-- ################## -->
-     <!-- Nav Bar -->
+    <!-- Nav Bar -->
     <!-- ################## -->
     <nav class="navbar">
         <div class="nav-container">
@@ -80,7 +80,7 @@
         </div>
     </nav>
     <!-- ################## -->
-     <!-- Contenido pagina -->
+    <!-- Contenido pagina -->
     <!-- ################## -->
     <section class="contendor-carruseles">
         <!-- carrusel izquierdo -->
@@ -96,7 +96,7 @@
 
         <!-- Línea divisoria -->
         <div class="linea-divisora"></div>
-        
+
         <!-- carrusel derecho -->
         <div class="informacionRapidaEImportante">
             <div class="imagenesInformacionRapida">
@@ -109,145 +109,42 @@
         </div>
     </section>
 
- 
-<section id="seccion-productos">
+    <!-- ################## -->
+    <!-- Lista de productos en tarjetas -->
+    <!-- ################## -->
+    <section class="contenedor-tarjetas">
+        <div class="tarjetas">
 
-  <!-- ── Encabezado ── -->
-  <div class="productos-header">
-    <h2>Nuestros Productos</h2>
-    <span id="productos-contador" class="productos-contador">12 productos</span>
-  </div>
+            <a href="medicamentos.html" class="tarjeta">
+                <img src="img/medicamento-icon.png" alt="medicamento">
+                <p>Medicamentos</p>
+            </a>
 
-  <!-- ══════════════════════════════════════
-       BARRA DE FILTROS
-       ══════════════════════════════════════ -->
-  <div class="productos-filtros">
+            <a href="vitaminas.html" class="tarjeta">
+                <img src="img/vitamina-icon.png" alt="vitamina">
+                <p>Vitaminas y suplementos</p>
+            </a>
 
-    <!-- Fila 1: Filtro por categoría -->
-    <div class="filtros-fila-categorias">
-      <span class="filtros-titulo">Categoría:</span>
+            <a href="cuidado_personal.html" class="tarjeta">
+                <img src="img/cuidado-personal-icon.png" alt="cuidado personal">
+                <p>Cuidado <br> personal</p>
+            </a>
 
-      <button class="filtro-cat-btn activo" data-valor="todos"
-        onclick="aplicarFiltroCategoria('todos')">
-        Todos
-      </button>
+            <a href="belleza.html" class="tarjeta">
+                <img src="img/belleza-icon.png" alt="belleza">
+                <p>Belleza y  cuidado  de la piel</p>
+            </a>
 
-      <button class="filtro-cat-btn" data-valor="medicamentos"
-        onclick="aplicarFiltroCategoria('medicamentos')">
-         Medicamentos
-      </button>
+            <a href="salud_familiar.html" class="tarjeta">
+                <img src="img/salud-familiar-icon.png" alt="salud familiar">
+                <p>Salud <br> familiar</p>
+            </a>
 
-      <button class="filtro-cat-btn" data-valor="vitaminas"
-        onclick="aplicarFiltroCategoria('vitaminas')">
-         Vitaminas
-      </button>
-
-      <button class="filtro-cat-btn" data-valor="cuidado-personal"
-        onclick="aplicarFiltroCategoria('cuidado-personal')">
-         Cuidado Personal
-      </button>
-    </div>
-
-    <hr class="filtros-divisor">
-
-    <!-- Fila 2: Precio + Marca + Stock + Orden -->
-    <div class="filtros-fila-extras">
-
-      <!-- Rango de precio -->
-      <div class="filtro-precio-bloque">
-        <div class="filtro-precio-labels">
-          <span>Precio:</span>
-          <div style="display:flex;gap:0.5rem;">
-            <span id="label-precio-min">$3.200</span>
-            <span>—</span>
-            <span id="label-precio-max">$52.000</span>
-          </div>
         </div>
-        <div class="filtro-precio-sliders">
-          <div class="filtro-precio-track"></div>
-          <input
-            type="range"
-            id="precio-min"
-            min="3200"
-            max="52000"
-            value="3200"
-            step="500"
-            oninput="aplicarFiltroPrecio()"
-            style="z-index:2;"
-          >
-          <input
-            type="range"
-            id="precio-max"
-            min="3200"
-            max="52000"
-            value="52000"
-            step="500"
-            oninput="aplicarFiltroPrecio()"
-            style="z-index:3;"
-          >
-        </div>
-      </div>
-
-      <!-- Selects: Marca + Orden -->
-      <div class="filtros-selects">
-
-        <div class="filtro-select-grupo">
-          <label for="filtro-marca">Marca</label>
-          <select id="filtro-marca" onchange="aplicarFiltroMarca(this.value)">
-            <option value="todas">Todas las marcas</option>
-            <option value="Genfar">Genfar</option>
-            <option value="MK">MK</option>
-            <option value="La Santé">La Santé</option>
-            <option value="Nivea">Nivea</option>
-            <option value="Centrum">Centrum</option>
-            <option value="Isagel">Isagel</option>
-          </select>
-        </div>
-
-        <div class="filtro-select-grupo">
-          <label for="filtro-orden">Ordenar por</label>
-          <select id="filtro-orden" onchange="aplicarOrden(this.value)">
-            <option value="destacados">Destacados</option>
-            <option value="nuevos">Más nuevos</option>
-            <option value="precio-asc">Precio: menor a mayor</option>
-            <option value="precio-desc">Precio: mayor a menor</option>
-            <option value="nombre-az">Nombre A–Z</option>
-          </select>
-        </div>
-
-      </div>
-
-      <!-- Checkbox solo en stock -->
-      <div class="filtro-stock-wrap">
-        <label class="filtro-stock-label">
-          <input
-            type="checkbox"
-            id="filtro-stock"
-            onchange="aplicarFiltroStock(this.checked)"
-          >
-          Solo disponibles
-        </label>
-      </div>
-
-      <!-- Botón limpiar -->
-      <button class="btn-limpiar-filtros" onclick="limpiarFiltros()">
-        ✕ Limpiar filtros
-      </button>
-
-    </div>
-  </div>
-
-  <!-- ══════════════════════════════════════
-       GRID DE PRODUCTOS (renderizado por JS)
-       ══════════════════════════════════════ -->
-  <div id="productos-grid" class="productos-grid">
-    <!-- Las tarjetas se generan automáticamente con JavaScript -->
-  </div>
-
-</section>
+    </section>
 
     <!-- ################## -->
-     <!-- Footer -->
+    <!-- Footer -->
     <!-- ################## -->
     <footer class="footer">
         <div class="footer__top">
@@ -293,7 +190,8 @@
         </div>
 
         <!-- Logo fijo de WhatsApp -->
-        <a href="https://wa.me/573165508903?text=Hola,%20buen%20día.%20Vi%20su%20página%20web%20y%20estoy%20interesado%20en%20sus%20productos.%20¿Podrían%20brindarme%20más%20información,%20por%20favor?" target="_blank">
+        <a href="https://wa.me/573165508903?text=Hola,%20buen%20día.%20Vi%20su%20página%20web%20y%20estoy%20interesado%20en%20sus%20productos.%20¿Podrían%20brindarme%20más%20información,%20por%20favor?"
+            target="_blank">
             <img src="img/logo-whatsapp.png" alt="Logo WhatsApp" class="logo-fijo">
         </a>
 
@@ -304,26 +202,40 @@
 
                 <!-- Facebook -->
                 <a href="https://www.facebook.com/ASBY" target="_blank" class="footer__social-link" title="Facebook">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                    </svg>
                 </a>
 
                 <!-- Instagram -->
                 <a href="https://www.instagram.com/ASBY" target="_blank" class="footer__social-link" title="Instagram">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" /></svg>
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" />
+                        <circle cx="12" cy="12" r="4" />
+                        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+                    </svg>
                 </a>
 
                 <!-- X / Twitter -->
                 <a href="https://www.twitter.com/ASBY" target="_blank" class="footer__social-link" title="X / Twitter">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /> </svg>
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                        <path
+                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
                 </a>
 
                 <!-- WhatsApp -->
-                <a href="https://wa.me/573165508903?text=Hola,%20buen%20día.%20Vi%20su%20página%20web%20y%20estoy%20interesado%20en%20sus%20productos.%20¿Podrían%20brindarme%20más%20información,%20por%20favor?" target="_blank" class="footer__social-link" title="WhatsApp">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"> <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12 2C6.477 2 2 6.477 2 12c0 1.821.487 3.53 1.338 5L2 22l5.132-1.322A9.956 9.956 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2m0 18a7.946 7.946 0 0 1-4.318-1.271l-.31-.184-3.044.784.807-2.965-.202-.32A7.948 7.948 0 0 1 4 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8" /> </svg>
+                <a href="https://wa.me/573165508903?text=Hola,%20buen%20día.%20Vi%20su%20página%20web%20y%20estoy%20interesado%20en%20sus%20productos.%20¿Podrían%20brindarme%20más%20información,%20por%20favor?"
+                    target="_blank" class="footer__social-link" title="WhatsApp">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12 2C6.477 2 2 6.477 2 12c0 1.821.487 3.53 1.338 5L2 22l5.132-1.322A9.956 9.956 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2m0 18a7.946 7.946 0 0 1-4.318-1.271l-.31-.184-3.044.784.807-2.965-.202-.32A7.948 7.948 0 0 1 4 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8" />
+                    </svg>
                 </a>
 
                 <!-- Coopidrogas -->
-                <a href="https://www.coopidrogas.com.co" target="_blank" class="footer__social-link" title="Coopidrogas">
+                <a href="https://www.coopidrogas.com.co" target="_blank" class="footer__social-link"
+                    title="Coopidrogas">
                     <img src="img/icon-coopidrogas.png" alt="icono-coopidrogas" width="18" height="18">
                 </a>
 
@@ -331,9 +243,9 @@
         </div>
     </footer>
     <!-- ################## -->
-     <!-- script -->
+    <!-- script -->
     <!-- ################## -->
-    <script src="js/script.js"></script>
+    <script src="js/scriptIndex.js"></script>
 </body>
 
 </html>

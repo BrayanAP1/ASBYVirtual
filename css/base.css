@@ -9,6 +9,7 @@
   --color-primary: #0066cc;
   --color-primary-dark: #004a99;
   --color-primary-light: #e6f0fa;
+  --color-primary-light-secondary: rgb(159, 207, 255);
   --color-accent: #0198e4;
   --color-white: #ffffff;
 
@@ -52,3 +53,4 @@ body {
   color: var(--color-text);
   background: #f4f6f8;
 }
+
